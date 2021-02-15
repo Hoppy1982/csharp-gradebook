@@ -1,6 +1,5 @@
-using System.Runtime.Intrinsics.X86;
-using System.Reflection;
 using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace GradeBook.Tests
@@ -10,7 +9,7 @@ namespace GradeBook.Tests
 		[Fact]
 		public void BookCalculatesAnAverageGrade()
 		{
-			var book = new Book("");
+			var book = new Book("Name");
 
 			book.AddGrade(89.1);
 			book.AddGrade(90.5);
@@ -21,6 +20,7 @@ namespace GradeBook.Tests
 			Assert.Equal(85.63, result.Average, 1);
 			Assert.Equal(90.5, result.High, 1);
 			Assert.Equal(77.3, result.Low, 1);
+			Assert.Equal('B', result.Letter);
 		}
 	}
 }
